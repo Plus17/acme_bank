@@ -1,4 +1,4 @@
-defmodule AppName.Schemas.Users.Settings do
+defmodule AppName.Users.Domain.Settings do
   @moduledoc """
   User settings schema
   """

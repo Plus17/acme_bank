@@ -1,4 +1,4 @@
-defmodule AppName.Handlers.Users.TwoFactorHander do
+defmodule AppName.Users.Contexts.TwoFactor do
   @moduledoc """
   Handler for Two Factor
   """
@@ -14,11 +14,11 @@ defmodule AppName.Handlers.Users.TwoFactorHander do
   """
   @spec setup(User.t(), String.t(), String.t()) :: {:ok, User.t()}
   def setup(%User{} = user, secret, otp) do
-    Logger.debug("[TwoFactorHander.setup/3] Validating secret: #{secret}, otp: #{otp}")
+    Logger.debug("[TwoFactor.setup/3] Validating secret: #{secret}, otp: #{otp}")
 
     with {:ok, :valid} <- validate_otp(secret, otp),
          {:ok, user} <- Accounts.setup_two_factor(user, secret) do
-      Logger.info("[TwoFactorHander] Success 2FA setup for user #{user.id}")
+      Logger.info("[TwoFactor] Success 2FA setup for user #{user.id}")
       {:ok, :success}
     end
   end
@@ -29,7 +29,7 @@ defmodule AppName.Handlers.Users.TwoFactorHander do
     if NimbleTOTP.valid?(secret, otp) do
       {:ok, :valid}
     else
-      Logger.warn("[TwoFactorHander.validate_otp/2] Invalid otp code")
+      Logger.warn("[TwoFactor.validate_otp/2] Invalid otp code")
       {:error, :invalid_otp}
     end
   end
@@ -39,7 +39,7 @@ defmodule AppName.Handlers.Users.TwoFactorHander do
   """
   @spec deactivate(User.t()) :: {:ok, User.t()}
   def deactivate(%User{} = user) do
-    Logger.debug("[TwoFactorHander.deactivate/1] Deactivating two factor for user #{user.id}")
+    Logger.debug("[TwoFactor.deactivate/1] Deactivating two factor for user #{user.id}")
     Accounts.deactivate_two_factor(user)
   end
 end

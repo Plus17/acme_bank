@@ -5,7 +5,7 @@ defmodule AppName.UserFactory do
 
   alias AppName.Contexts.Accounts.User
 
-  alias AppName.Schemas.Users.Settings
+  alias AppName.Users.Domain.Settings
 
   defmacro __using__(_opts) do
     quote do

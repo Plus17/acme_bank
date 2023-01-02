@@ -6,7 +6,7 @@ defmodule AppName.Contexts.Accounts.User do
   use AppName.Schema
   import Ecto.Changeset
 
-  alias AppName.Schemas.Users.Settings
+  alias AppName.Users.Domain.Settings
 
   schema "users" do
     field :email, :string
