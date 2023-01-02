@@ -22,6 +22,7 @@ jobs:
     env:
       MIX_ENV: test
       TEST_DATABASE_URL: ecto://postgres:postgres@localhost/app_name_test
+      DATABASE_URL: ecto://postgres:postgres@localhost/app_name_test # To run release verification step
     name: Build and test
     strategy:
       # Specify the OTP and Elixir versions to use when building
