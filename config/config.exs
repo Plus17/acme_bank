@@ -7,17 +7,17 @@
 # General application configuration
 import Config
 
-config :app_name,
-  ecto_repos: [AppName.Repo],
+config :acme_bank,
+  ecto_repos: [AcmeBank.Repo],
   generators: [binary_id: true]
 
 # Configures the endpoint
-config :app_name, AppNameWeb.Endpoint,
+config :acme_bank, AcmeBankWeb.Endpoint,
   render_errors: [
-    formats: [html: AppNameWeb.ErrorHTML, json: AppNameWeb.ErrorJSON],
+    formats: [html: AcmeBankWeb.ErrorHTML, json: AcmeBankWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: AppName.PubSub,
+  pubsub_server: AcmeBank.PubSub,
   live_view: [signing_salt: "ePqBlGTf"]
 
 # Configures the mailer
@@ -27,7 +27,7 @@ config :app_name, AppNameWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :app_name, AppName.Mailer, adapter: Swoosh.Adapters.Local
+config :acme_bank, AcmeBank.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

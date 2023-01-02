@@ -1,9 +1,9 @@
-defmodule AppName.MixProject do
+defmodule AcmeBank.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :app_name,
+      app: :acme_bank,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -27,7 +27,7 @@ defmodule AppName.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {AppName.Application, []},
+      mod: {AcmeBank.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

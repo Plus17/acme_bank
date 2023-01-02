@@ -1,7 +1,7 @@
 import Config
 
 # Configure your database
-config :app_name, AppName.Repo,
+config :acme_bank, AcmeBank.Repo,
   url: System.fetch_env!("DATABASE_URL"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -12,7 +12,7 @@ config :app_name, AppName.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :app_name, AppNameWeb.Endpoint,
+config :acme_bank, AcmeBankWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {0, 0, 0, 0}, port: System.fetch_env!("HTTP_PORT")],
@@ -52,13 +52,13 @@ config :app_name, AppNameWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :app_name, AppNameWeb.Endpoint,
+config :acme_bank, AcmeBankWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/app_name_web/(live|views)/.*(ex)$",
-      ~r"lib/app_name_web/templates/.*(eex)$"
+      ~r"lib/acme_bank_web/(live|views)/.*(ex)$",
+      ~r"lib/acme_bank_web/templates/.*(eex)$"
     ]
   ]
 

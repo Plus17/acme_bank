@@ -1,8 +1,8 @@
-defmodule AppName.Release do
+defmodule AcmeBank.Release do
   @moduledoc """
   Responsible for custom release commands
   """
-  @app :app_name
+  @app :acme_bank
 
   def migrate do
     load_app()

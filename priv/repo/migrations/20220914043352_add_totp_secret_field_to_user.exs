@@ -1,4 +1,4 @@
-defmodule AppName.Repo.Migrations.AddTotpSecretFieldToUser do
+defmodule AcmeBank.Repo.Migrations.AddTotpSecretFieldToUser do
   use Ecto.Migration
 
   def change do

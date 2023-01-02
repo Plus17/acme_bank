@@ -36,11 +36,11 @@
           ~r"/deps/",
           ~r"/node_modules/",
           ~r"/test/support/",
-          ~r"/lib/app_name_web/",
-          "lib/app_name_web.ex",
-          "lib/app_name_web/telemetry.ex",
-          "lib/app_name/release.ex",
-          "lib/app_name/protocol_implementations.ex",
+          ~r"/lib/acme_bank_web/",
+          "lib/acme_bank_web.ex",
+          "lib/acme_bank_web/telemetry.ex",
+          "lib/acme_bank/release.ex",
+          "lib/acme_bank/protocol_implementations.ex",
           "lib/mix/tasks/gen.manager.ex"
         ]
       },
@@ -113,8 +113,8 @@
          [
            files: %{
              excluded: [
-               "lib/app_name_web/controllers/user_auth.ex",
-               "lib/app_name/contexts/accounts/user_notifier.ex"
+               "lib/acme_bank_web/controllers/user_auth.ex",
+               "lib/acme_bank/contexts/accounts/user_notifier.ex"
              ]
            }
          ]},
@@ -181,7 +181,7 @@
          [
            files: %{
              excluded: [
-               "lib/app_name/contexts/accounts.ex",
+               "lib/acme_bank/contexts/accounts.ex",
                "lib/release.ex"
              ]
            }
@@ -197,13 +197,13 @@
          [
            files: %{
              excluded: [
-               ~r"/lib/app_name_web/views/",
-               ~r"/lib/app_name_web/controllers/",
+               ~r"/lib/acme_bank_web/views/",
+               ~r"/lib/acme_bank_web/controllers/",
                ~r"/test/factories",
-               "lib/app_name/contexts/accounts/user.ex",
-               "lib/app_name/contexts/accounts/user_notifier.ex",
-               "lib/app_name/contexts/accounts.ex",
-               "lib/app_name/contexts/accounts/user_token.ex",
+               "lib/acme_bank/contexts/accounts/user.ex",
+               "lib/acme_bank/contexts/accounts/user_notifier.ex",
+               "lib/acme_bank/contexts/accounts.ex",
+               "lib/acme_bank/contexts/accounts/user_token.ex",
                "lib/release.ex"
              ]
            }
@@ -229,7 +229,7 @@
            files: %{
              excluded: [
                # exclude mix phx.gen.auth generated files
-               "lib/app_name_web/controllers/user_confirmation_controller.ex"
+               "lib/acme_bank_web/controllers/user_confirmation_controller.ex"
              ]
            }
          ]},
@@ -240,13 +240,13 @@
            files: %{
              excluded: [
                # exclude mix phx.gen.auth generated files
-               "test/app_name/contexts/accounts_test.exs",
-               "test/app_name_web/controllers/user_settings_controller_test.exs",
-               "test/app_name_web/controllers/user_session_controller_test.exs",
-               "test/app_name_web/controllers/user_registration_controller_test.exs",
-               "test/app_name_web/controllers/user_confirmation_controller_test.exs",
-               "test/app_name_web/controllers/user_auth_test.exs",
-               "lib/app_name_web/controllers/user_confirmation_controller.ex"
+               "test/acme_bank/contexts/accounts_test.exs",
+               "test/acme_bank_web/controllers/user_settings_controller_test.exs",
+               "test/acme_bank_web/controllers/user_session_controller_test.exs",
+               "test/acme_bank_web/controllers/user_registration_controller_test.exs",
+               "test/acme_bank_web/controllers/user_confirmation_controller_test.exs",
+               "test/acme_bank_web/controllers/user_auth_test.exs",
+               "lib/acme_bank_web/controllers/user_confirmation_controller.ex"
              ]
            }
          ]},

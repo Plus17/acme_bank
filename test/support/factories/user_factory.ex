@@ -1,11 +1,11 @@
-defmodule AppName.UserFactory do
+defmodule AcmeBank.UserFactory do
   @moduledoc """
   User factory to populate test data
   """
 
-  alias AppName.Contexts.Accounts.User
+  alias AcmeBank.Contexts.Accounts.User
 
-  alias AppName.Users.Domain.Settings
+  alias AcmeBank.Users.Domain.Settings
 
   defmacro __using__(_opts) do
     quote do

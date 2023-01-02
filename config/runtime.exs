@@ -14,7 +14,7 @@ if config_env() == :prod do
       For example: ecto://USER:PASS@HOST/DATABASE
       """
 
-  config :app_name, AppName.Repo,
+  config :acme_bank, AcmeBank.Repo,
     # ssl: true,
     # socket_options: [:inet6],
     url: database_url,
@@ -32,7 +32,7 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  config :app_name, AppNameWeb.Endpoint,
+  config :acme_bank, AcmeBankWeb.Endpoint,
     url: [
       host: System.fetch_env!("PHX_URL_HOST"),
       port: System.get_env("URL_PORT", "443")
@@ -52,7 +52,7 @@ if config_env() == :prod do
   # If you are doing OTP releases, you need to instruct Phoenix
   # to start each relevant endpoint:
   #
-  #     config :app_name, AppNameWeb.Endpoint, server: true
+  #     config :acme_bank, AcmeBankWeb.Endpoint, server: true
   #
   # Then you can assemble a release by calling `mix release`.
   # See `mix help release` for more information.
@@ -63,7 +63,7 @@ if config_env() == :prod do
   # Also, you may need to configure the Swoosh API client of your choice if you
   # are not using SMTP. Here is an example of the configuration:
   #
-  #     config :app_name, AppName.Mailer,
+  #     config :acme_bank, AcmeBank.Mailer,
   #       adapter: Swoosh.Adapters.Mailgun,
   #       api_key: System.get_env("MAILGUN_API_KEY"),
   #       domain: System.get_env("MAILGUN_DOMAIN")

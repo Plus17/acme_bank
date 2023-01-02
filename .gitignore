@@ -21,7 +21,7 @@ erl_crash.dump
 *.beam
 
 # Ignore package tarball (built via "mix hex.build").
-app_name-*.tar
+acme_bank-*.tar
 
 # The directory NPM downloads your dependencies sources to.
 /assets/node_modules/

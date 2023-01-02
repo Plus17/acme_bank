@@ -57,6 +57,6 @@ RUN apk add --no-cache libstdc++ openssl ncurses-libs
 WORKDIR "/home/app"
 
 # copy release executables
-COPY --from=0 /app/_build/"${MIX_ENV}"/rel/app_name ./
+COPY --from=0 /app/_build/"${MIX_ENV}"/rel/acme_bank ./
 
-CMD PORT=$PORT exec bin/app_name start
+CMD PORT=$PORT exec bin/acme_bank start

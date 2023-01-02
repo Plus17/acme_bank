@@ -1,4 +1,4 @@
-defmodule AppName.Repo.Migrations.AddSettingsFieldToUser do
+defmodule AcmeBank.Repo.Migrations.AddSettingsFieldToUser do
   use Ecto.Migration
 
   def change do

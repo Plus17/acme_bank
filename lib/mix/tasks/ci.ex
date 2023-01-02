@@ -46,7 +46,7 @@ defmodule Mix.Tasks.CI do
     Mix.Task.run("cmd", ["MIX_ENV=prod", "mix release"])
 
     Mix.Task.run("cmd", [
-      "_build/prod/rel/app_name/bin/app_name eval \"AppName.Release.unsure_all_started()\""
+      "_build/prod/rel/acme_bank/bin/acme_bank eval \"AcmeBank.Release.unsure_all_started()\""
     ])
   end
 
