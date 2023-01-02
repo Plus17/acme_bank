@@ -96,7 +96,7 @@ defmodule Mix.Tasks.Gen.Manager do
   def run(args) do
     if Mix.Project.umbrella?() do
       Mix.raise(
-        "mix phx.gen.context must be invoked from within your *_web application root directory"
+        "mix gen.manager must be invoked from within your *_web application root directory"
       )
     end
 
@@ -124,7 +124,7 @@ defmodule Mix.Tasks.Gen.Manager do
 
     [context_name, schema_name, plural | schema_args] = validate_args!(parsed, help)
 
-    schema_module = inspect(Module.concat(["Schemas", context_name, schema_name]))
+    schema_module = inspect(Module.concat([context_name, "Domain", schema_name]))
 
     schema = Gen.Schema.build([schema_module, plural | schema_args], opts, help)
 
@@ -134,7 +134,7 @@ defmodule Mix.Tasks.Gen.Manager do
     test_factory_file = Path.join([test_factories_dir, basedir <> "_factory.ex"])
 
     context =
-      Context.new("Contexts.#{context_name}.#{schema_name}Manager", schema, opts)
+      Context.new("#{context_name}.Infraestructure.#{schema_name}Manager", schema, opts)
       |> Map.put(:test_fixtures_file, test_factory_file)
 
     {context, schema}
@@ -172,6 +172,7 @@ defmodule Mix.Tasks.Gen.Manager do
     inject_schema_access(context, paths, binding)
     inject_tests(context, paths, binding)
     inject_test_fixture(context, paths, binding)
+    inject_use_factory(context, paths, binding)
 
     context
   end
@@ -268,6 +269,20 @@ defmodule Mix.Tasks.Gen.Manager do
     end
   end
 
+  defp inject_use_factory(
+         %Context{schema: schema} = context,
+         _paths,
+         binding
+       ) do
+    ctx_app = Mix.Phoenix.context_app()
+    test_factories_dir = Mix.Phoenix.context_app_path(ctx_app, "test/support/")
+    test_factory_file = Path.join([test_factories_dir <> "factory.ex"])
+
+    "  use #{inspect(context.base_module)}.#{inspect(schema.alias)}Factory\n"
+    |> Mix.Phoenix.prepend_newline()
+    |> inject_eex_before_final_end(test_factory_file, binding)
+  end
+
   defp indent(string, spaces) do
     indent_string = String.duplicate(" ", spaces)
 
@@ -353,14 +368,11 @@ defmodule Mix.Tasks.Gen.Manager do
   def raise_with_help(msg) do
     Mix.raise("""
     #{msg}
-    mix phx.gen.html, phx.gen.json, phx.gen.live, and phx.gen.context
+    mix gen.manager
     expect a context module name, followed by singular and plural names
     of the generated resource, ending with any number of attributes.
     For example:
-        mix phx.gen.html Accounts User users name:string
-        mix phx.gen.json Accounts User users name:string
-        mix phx.gen.live Accounts User users name:string
-        mix phx.gen.context Accounts User users name:string
+        mix gen.manager Accounts User users name:string
     The context serves as the API boundary for the given resource.
     Multiple resources may belong to a context and a resource may be
     split over distinct contexts (such as Accounts.User and Payments.User).

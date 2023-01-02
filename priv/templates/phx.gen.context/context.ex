@@ -1,6 +1,6 @@
 defmodule <%= inspect context.module %> do
   @moduledoc """
-  The <%= context.name %> Manager.
+  The <%= inspect schema.alias %> Manager.
   """
 
   import Ecto.Query, warn: false
