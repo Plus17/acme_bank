@@ -22,7 +22,9 @@ jobs:
     env:
       MIX_ENV: test
       TEST_DATABASE_URL: ecto://postgres:postgres@localhost/acme_bank_test
-      DATABASE_URL: ecto://postgres:postgres@localhost/acme_bank_test # To run release verification step
+      # To run release verification step
+      DATABASE_URL: ecto://postgres:postgres@localhost/acme_bank_test
+      SECRET_KEY_BASE: "qPA4V8MJKVaIm69hEnFtsDFBZyLq+XWtAiK+K1XiWCMnX6sTj24al3ZThKGQ39Wx"
     name: Build and test
     strategy:
       # Specify the OTP and Elixir versions to use when building
