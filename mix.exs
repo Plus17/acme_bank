@@ -95,7 +95,6 @@ defmodule AppName.MixProject do
         "ecto.migrate --quiet",
         "test --warnings-as-errors"
       ],
-      ci: ["compile", "format --check-formatted", "credo --strict", "cmd MIX_ENV=test mix test"],
       "assets.deploy": ["esbuild default --minify", "phx.digest"]
     ]
   end
