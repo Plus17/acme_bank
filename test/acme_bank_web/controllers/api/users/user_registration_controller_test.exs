@@ -23,8 +23,13 @@ defmodule AcmeBankWeb.API.UserRegistrationControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, ~p"/api/users/register", user: @invalid_attrs)
-      assert json_response(conn, 422)["errors"] != %{}
+      error_response =
+        conn
+        |> post(~p"/api/users/register", user: @invalid_attrs)
+        |> json_response(422)
+        |> Map.fetch!("errors")
+
+      assert error_response == %{"email" => ["can't be blank"], "password" => ["can't be blank"]}
     end
   end
 end
