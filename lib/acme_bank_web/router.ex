@@ -98,6 +98,12 @@ defmodule AcmeBankWeb.Router do
     post "/users/confirm/:token", UserConfirmationController, :update
   end
 
+  scope "/api/users", AcmeBankWeb.API, as: :api do
+    pipe_through :api
+
+    resources "/register", UserRegistrationController, only: [:create]
+  end
+
   scope "/health", log: false do
     forward "/", AcmeBankWeb.Plugs.HealthCheck
   end
