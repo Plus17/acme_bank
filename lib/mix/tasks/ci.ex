@@ -1,5 +1,5 @@
 defmodule Mix.Tasks.CI do
-  @moduledoc "The CI mix task: `mix help hello`"
+  @moduledoc "The CI mix task: `mix help CI`"
 
   use Mix.Task
 
@@ -7,12 +7,12 @@ defmodule Mix.Tasks.CI do
   Execute all CI verifications:
 
   1. compile the code with warnings_as_errors: true (see mix.exs)
-  2. Verified code is formatted
+  2. Verifify code is formatted
   3. Run credo verifications in strict mode
   4. Setup the database
-  5. Rollback migration to ensure this works
-  6. Setup the database again
-  7. Run test with --warnings-as-errors flag (see mix.exs)
+  5. Run test with --warnings-as-errors flag (see mix.exs)
+  6. Verifify migrations are reversible
+  7. Verify release in prod env works
   """
   @spec run(any()) :: any()
   def run(_args) do
@@ -20,11 +20,11 @@ defmodule Mix.Tasks.CI do
 
     Mix.Task.run("compile")
 
-    print_blue("Formating code ...")
+    print_blue("Verifing code is formatted ...")
 
     Mix.Task.run("format", ["--check-formatted"])
 
-    print_blue("Runing credo ...")
+    print_blue("Runing credo in strict mode ...")
 
     Mix.Task.run("credo", ["--strict"])
 
