@@ -3,7 +3,7 @@ defmodule AcmeBank.Contexts.Accounts.User do
   User schema
   """
 
-  use AcmeBank.Schema
+  use AcmeBank.Shared.Domain.Schema
   import Ecto.Changeset
 
   alias AcmeBank.Users.Domain.Settings

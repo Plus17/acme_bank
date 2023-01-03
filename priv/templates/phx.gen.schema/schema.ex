@@ -2,7 +2,7 @@ defmodule <%= inspect schema.module %> do
   @moduledoc """
    The <%= schema.table %> schema module.
   """
-  use <%= inspect context.base_module %>.Schema
+  use <%= inspect context.base_module %>.Shared.Domain.Schema
   import Ecto.Changeset
 <%= if schema.prefix do %>
   @schema_prefix :<%= schema.prefix %>

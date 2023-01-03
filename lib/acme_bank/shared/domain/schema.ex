@@ -1,4 +1,4 @@
-defmodule AcmeBank.Schema do
+defmodule AcmeBank.Shared.Domain.Schema do
   @moduledoc """
   Base schema attributes configuration. This macro must be used in all schemas.
 
