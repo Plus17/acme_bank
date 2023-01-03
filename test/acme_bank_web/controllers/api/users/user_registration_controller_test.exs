@@ -11,11 +11,11 @@ defmodule AcmeBankWeb.API.UserRegistrationControllerTest do
     test "creates account", %{conn: conn} do
       email = unique_user_email()
 
+      user_params = params_for(:user, email: email, password: valid_user_password())
+
       response =
         conn
-        |> post(~p"/api/users/register", %{
-          "user" => params_for(:user, email: email, password: valid_user_password())
-        })
+        |> post(~p"/api/users/register", %{"user" => user_params})
         |> json_response(201)
         |> Map.fetch!("data")
 
